@@ -6,7 +6,7 @@ public class Main {
         epuletek.varosok();
         System.out.println("----------------------------------------------------------------");
         epuletek.halmazzalVarosok();
-
+        epuletek.hanyszorSzerepel();
     }
 
 }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeSet;
 
@@ -116,10 +117,28 @@ public class Epuletek {
         for(String item:halmaz){
             System.out.println(item);
         }
+    }
+//melyikváros hányszor szerepel - dictionary---> HashMap
 
+    public void hanyszorSzerepel(){
+        // <Kulcs tipusa, Value tipusat kell megadni>
+        // város a kulcs
+        // adott város hányszor szerepel
+        HashMap<String, Integer>stat = new HashMap<>();
+        for (Epulet item : lista){
+            String kulcs = item.getVaros();
+            if (!stat.containsKey(kulcs)){
+                stat.put(kulcs,0);
+            }
+            int value = stat.get(kulcs)+1; // egyel növeljük
+            stat.put(kulcs, value);
         }
-
-
+        for (String key : stat.keySet()){
+            if (stat.get(key)>1){
+                System.out.println(key + " " + stat.get(key));
+            }
+        }
+    }
 
 
 }

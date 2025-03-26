@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.TreeSet;
 
 public class Epuletek {
    private ArrayList<Epulet> lista;
@@ -78,6 +80,46 @@ public class Epuletek {
         }
         return Math.round((atlag/lista.size())*100)/100.0;
     }
+
+    public Epulet legalacsonyabb(){
+        Epulet alacsony = lista.get(0);
+        for (Epulet item : lista){
+            if (item.getMagassag()<alacsony.getMagassag()){
+                alacsony=item;
+            }
+        }
+        return alacsony;
+
+
+
+
+
+    }
+
+    public void varosok(){
+        ArrayList<String> v = new ArrayList<>();
+        for (Epulet item : lista){
+            if (!v.contains(item.getVaros())){
+                v.add(item.getVaros());
+            }
+        }
+        for (String item : v){
+            System.out.println(item);
+        }
+    }
+    public void halmazzalVarosok(){
+        //HashSet<String>halmaz = new HashSet<>();
+        TreeSet<String>halmaz = new TreeSet<>(); //növekvősorrendben rakja bele az adatokat
+        for (Epulet item : lista) {
+            halmaz.add(item.getVaros());
+        }
+        for(String item:halmaz){
+            System.out.println(item);
+        }
+
+        }
+
+
 
 
 }
